@@ -15,7 +15,7 @@ These values are gait-tuning constants rather than values derived from a single 
 The yaw amplitude and steering values also provide a useful safety margin. The strongest yaw contribution per joint is approximately:
 
 \[
-25(1.0)(1.0)+20(1.0)=45^\circ
+25(1.0)(1.0)+20(1.0)=45<sup>o</sup>
 \]
 
 only if both envelopes were simultaneously equal to one. In the actual code, the wave envelope is strongest at the tail while the steering envelope is strongest at the head. The largest per-joint combination is approximately `38.75°`, so the normal gait remains well inside the ±60° deflection limit and therefore inside the absolute 30–150° command range.
