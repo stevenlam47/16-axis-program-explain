@@ -1,0 +1,26 @@
+                     ┌───────────────────────────────┐
+                     │     robot_state_publisher     │
+                     │      /robot_description       │
+                     └───────────────┬───────────────┘
+                                     │ TF (Robot Base Tree)
+                                     ▼
+┌──────────────────┐    /odom     ┌──────────────────┐   /cmd_vel   ┌──────────────────┐
+│ micromouse_sim   │─────────────►│ micromouse_brain │─────────────►│ micromouse_sim   │
+│ (Physics World)  │  /ir/analog  │                  │              │ (Wheel Control)  │
+│                  │  /ir/ranges  │                  │              │                  │
+└────────┬─────────┘              └────────┬─────────┘              └──────────────────┘
+         │ TF: odom→base_footprint         │
+         │                                 ├── /micromouse/status
+         │                                 ├── /micromouse/trail
+         │                                 ├── /micromouse/path
+         │                                 ├── /micromouse/map_table
+         │                                 ├── /micromouse/map_blob
+         │                                 └── /micromouse/report
+         ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ RViz2                                                                  │
+│   /maze/markers            Ground Truth Maze                           │
+│   /micromouse/map_markers  Internal Explored Map                       │
+│   /ir/markers              Infrared Sensor Beams                       │
+│   /micromouse/trail        Color-coded Trajectory per Run              │
+└────────────────────────────────────────────────────────────────────────┘
